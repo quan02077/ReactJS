@@ -1,0 +1,93 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.25.7/babel.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: inherit;
+        }
+
+        body {
+            display: flex;
+        }
+
+        #root {
+            margin: 0 auto;
+        }
+
+        #wrapper {
+            height: 100vh;
+            display: flex;
+        }
+
+        .btn {
+            text-align: center;
+            margin: auto;
+            background-color: rgb(26, 91, 140);
+            font-weight: bold;
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+            width: 150px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgb(26, 91, 140);
+            transition: transform .3s linear, box-shadow .3s linear;
+        }
+
+        .btn:active {
+            opacity: 0.8;
+        }
+
+        .btn:hover {
+            transform: translateY(-10px) scale(1.8px);
+            box-shadow: 0 2px 8px rgb(26, 91, 140);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        //Component
+        function Button({ title, href, onClick }) {
+            let Component = 'button'
+            const props = {}
+
+            if (href) {
+                Component = 'a'
+                props.href = href
+            }
+
+            if (onClick) {
+                props.onClick = onClick
+            }
+            return (
+                <Component {...props} className='btn'>{title}</Component>
+            )
+        }
+
+        function App() {
+            return (
+                <div id="wrapper">
+                    <Button
+                        title='Click me!'
+                        href='https://github.com/quan02077'
+                        onClick={() => console.log(Math.random())}
+                    />
+                </div>
+            )
+        }
+
+        ReactDOM.render(<App />, document.getElementById("root"))
+    </script>
+</body>
+
+</html>
