@@ -1,0 +1,47 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+</head>
+
+<body>
+    <script>
+        //DOM
+        const h1DOM = document.createElement('h1');
+        h1DOM.title = 'Hello';
+        h1DOM.className = 'heading';
+        h1DOM.textContent = 'Hello, World!';
+        document.body.appendChild(h1DOM);
+
+        const ulDOM = document.createElement('ul');
+        const liDOM1 = document.createElement('li');
+        liDOM1.textContent = 'JavaScript';
+        const liDOM2 = document.createElement('li');
+        liDOM2.textContent = 'ReactJS';
+        ulDOM.appendChild(liDOM1);
+        ulDOM.appendChild(liDOM2);
+        document.body.appendChild(ulDOM);
+        //React
+        const h1React = React.createElement('h1', {
+            title: 'Hello',
+            className: 'heading'
+        }, 'Hello, World!');
+
+        const ulReact = React.createElement('ul', null,
+            React.createElement('li', null, 'JavaScript'),
+            React.createElement('li', null, 'ReactJS')
+        );
+
+        const divReact = React.createElement('div', {
+            className: 'post-item'
+        },
+            React.createElement('h1', { title: 'Học ReactJS tại F8' }, 'Học ReactJS'),
+            React.createElement('p', null, 'Học ReactJS tại F8 rất vui')
+        );
+    </script>
+</body>
+
+</html>
