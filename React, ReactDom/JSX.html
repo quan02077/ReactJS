@@ -1,0 +1,46 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>React JSX</title>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.25.7/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const courses = [
+            {
+                name: 'HTML, CSS'
+            },
+            {
+                name: 'Reponsive web design'
+            },
+            {
+                name: 'ReactJS'
+            }
+        ]
+        //Cách chuẩn
+        const list = (
+            <ul>
+                {courses.map((course, index) => (
+                    <li key={index}>{course.name}</li>
+                ))}
+            </ul>
+        )
+        //Cách tà
+        // for (let i = 0; i < courses.length; i++) {
+        //     var list = <ul>
+        //         <li>{courses[i].name}</li>
+        //     </ul>
+        // }
+
+        ReactDOM.render(list, document.getElementById('root'));
+    </script>
+</body>
+
+</html>
