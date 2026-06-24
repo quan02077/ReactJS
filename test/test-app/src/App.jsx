@@ -5,10 +5,20 @@ import { useState } from "react"
 
 function App() {
   const [show, setShow] = useState(false)
+
+  let effectElement
+
+  if (show) {
+    effectElement = <UseEffectExample />
+  }
+  else {
+    effectElement = null
+  }
+
   return (
     <div className="App">
       <button onClick={() => setShow(!show)}>Toggle</button>
-      {show && <UseEffectExample />}
+      {effectElement}
     </div>
   )
 }

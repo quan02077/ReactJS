@@ -10,7 +10,10 @@ import { useState, useEffect } from "react";
 
 //------
 //1. Callback luôn được gọi sau khi component được mounted
-const tabs = ['posts', 'comments', 'albums']
+//2. CleanUp function luôn được gọi trước khi component unmounted
+//3. CleanUp function luôn được gọi trước khi callback được gọi (trừ lần unmounted)
+
+// const tabs = ['posts', 'comments', 'albums']
 // function UseEffectExample() {
 //     const [title, setTitle] = useState('')
 //     const [posts, setPosts] = useState([])
@@ -139,19 +142,107 @@ const tabs = ['posts', 'comments', 'albums']
 //     )
 // }
 
+// function UseEffectExample() {
+//     const [countdown, setCountdown] = useState(180)
+
+//     useEffect(() => {
+//         const timerId = setInterval(() => {
+//             setCountdown(prev => prev - 1)
+//         }, 1000)
+//         return () => clearInterval(timerId)
+//     }, [])
+//     return (
+//         <div>
+//             <h1>{countdown}</h1>
+//         </div>
+//     )
+// }
+
+// function UseEffectExample() {
+//     const [previewAvatar, setPreviewAvatar] = useState('')
+
+//     useEffect(() => {
+//         return (() => {
+//             if (previewAvatar) {
+//                 URL.revokeObjectURL(previewAvatar.preview)
+//             }
+//             else {
+//                 return
+//             }
+//         })
+//     }, [previewAvatar])
+
+//     const handelPreviewAvatar = (e) => {
+//         const file = e.target.files[0]
+//         file.preview = URL.createObjectURL(file)
+//         setPreviewAvatar(file)
+//     }
+
+//     let avatarElement
+
+//     if (previewAvatar) {
+//         avatarElement = <img src={previewAvatar.preview} alt='' width='80%' />
+//     }
+//     else {
+//         avatarElement = null
+//     }
+
+//     return (
+//         <div>
+//             <input
+//                 type="file"
+//                 onChange={handelPreviewAvatar}
+//             />
+//             {avatarElement}
+//         </div>
+//     )
+// }
+const lessons = [
+    {
+        id: 1,
+        name: 'ReactJS là gì?'
+    },
+    {
+        id: 2,
+        name: 'SPA/MPA là gì?'
+    },
+    {
+        id: 3,
+        name: 'Arrow function'
+    }
+]
 function UseEffectExample() {
-    const [countdown, setCountdown] = useState(180)
+    const [lessonId, setLessonId] = useState(1)
 
     useEffect(() => {
-        const timerId = setInterval(() => {
-            setCountdown(prev => prev - 1)
-        }, 1000)
-        return () => clearInterval(timerId)
-    }, [])
+        const handleComments = ({ detail }) => {
+            console.log(detail)
+        }
+
+        window.addEventListener(`lesson-${lessonId}`, handleComments)
+
+        return () => {
+            window.removeEventListener(`lesson-${lessonId}`, handleComments)
+        }
+    }, [lessonId])
     return (
         <div>
-            <h1>{countdown}</h1>
+            <ul>
+                {lessons.map(lesson => (
+                    <li key={lesson.id}
+                        style={
+                            {
+                                color: lessonId === lesson.id ? 'red' : '#333'
+                            }
+                        }
+                        onClick={() => setLessonId(lesson.id)}
+                    >
+                        {lesson.name}
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }
+
 export default UseEffectExample
