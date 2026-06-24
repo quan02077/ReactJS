@@ -1,7 +1,7 @@
 import UseStateExample from "./use_State.jsx"
 import UseEffectExample from "./useEffect.jsx"
 import ToDoList from "./toDoList.jsx"
-import { use, useState } from "react"
+import { useState } from "react"
 
 function App() {
   const [show, setShow] = useState(false)
