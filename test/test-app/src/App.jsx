@@ -1,24 +1,25 @@
 import UseStateExample from "./use_State.jsx"
 import UseEffectExample from "./useEffect.jsx"
+import UseLayoutEffectExample from "./useLayoutEffect.jsx"
 import ToDoList from "./toDoList.jsx"
 import { useState } from "react"
 
 function App() {
   const [show, setShow] = useState(false)
 
-  let effectElement
+  let layouteffectElement
 
   if (show) {
-    effectElement = <UseEffectExample />
+    layouteffectElement = <UseLayoutEffectExample />
   }
   else {
-    effectElement = null
+    layouteffectElement = null
   }
 
   return (
     <div className="App">
       <button onClick={() => setShow(!show)}>Toggle</button>
-      {effectElement}
+      {layouteffectElement}
     </div>
   )
 }
