@@ -4,6 +4,7 @@ import UseLayoutEffectExample from "./useLayoutEffect.jsx"
 import UseRefExample from "./useRef.jsx"
 import MemoExample from "./memo.jsx"
 import UseCallBackExample from "./useCallBack.jsx"
+import UseMemoExample from "./useMemo.jsx"
 import ToDoList from "./toDoList.jsx"
 import { useState } from "react"
 
@@ -13,7 +14,7 @@ function App() {
   let layoutElement
 
   if (show) {
-    layoutElement = <UseCallBackExample />
+    layoutElement = <UseMemoExample />
   }
   else {
     layoutElement = null
