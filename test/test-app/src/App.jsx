@@ -7,6 +7,7 @@ import UseCallBackExample from "./useCallBack.jsx"
 import UseMemoExample from "./useMemo.jsx"
 import UseReducerExample from "./useReducer.jsx"
 import ToDoList from "./toDoList.jsx"
+import ToDoList_useReducer from "./toDo_useReducer.jsx"
 import { useState } from "react"
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
   let layoutElement
 
   if (show) {
-    layoutElement = <UseReducerExample />
+    layoutElement = <ToDoList_useReducer />
   }
   else {
     layoutElement = null
