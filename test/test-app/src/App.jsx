@@ -1,25 +1,28 @@
 import UseStateExample from "./use_State.jsx"
 import UseEffectExample from "./useEffect.jsx"
 import UseLayoutEffectExample from "./useLayoutEffect.jsx"
+import UseRefExample from "./useRef.jsx"
+import MemoExample from "./memo.jsx"
+import UseCallBackExample from "./useCallBack.jsx"
 import ToDoList from "./toDoList.jsx"
 import { useState } from "react"
 
 function App() {
   const [show, setShow] = useState(false)
 
-  let layouteffectElement
+  let layoutElement
 
   if (show) {
-    layouteffectElement = <UseLayoutEffectExample />
+    layoutElement = <UseCallBackExample />
   }
   else {
-    layouteffectElement = null
+    layoutElement = null
   }
 
   return (
     <div className="App">
       <button onClick={() => setShow(!show)}>Toggle</button>
-      {layouteffectElement}
+      {layoutElement}
     </div>
   )
 }
