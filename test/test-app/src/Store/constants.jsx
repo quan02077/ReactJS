@@ -1,0 +1,5 @@
+export const SET_TODO_INPUT = 'set_todo_input'
+export const SET_TODOS = 'set_todos'
+export const DELETE_TODO = 'delete_todo'
+export const EDIT_INDEX = 'edit_index'
+export const UPDATE_TODO = 'update_todo'
