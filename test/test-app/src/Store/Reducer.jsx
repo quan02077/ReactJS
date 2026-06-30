@@ -19,11 +19,13 @@ function reducer(state, action) {
                 toDos: [...state.toDos, action.payload]
             }
         case DELETE_TODO:
-            const newToDos = [...state.toDos]
-            newToDos.splice(action.payload, 1)
-            return {
-                ...state,
-                toDos: newToDos
+            {
+                const newToDos = [...state.toDos]
+                newToDos.splice(action.payload, 1)
+                return {
+                    ...state,
+                    toDos: newToDos
+                }
             }
         case EDIT_INDEX:
             return {
@@ -31,13 +33,15 @@ function reducer(state, action) {
                 editIndex: action.payload
             }
         case UPDATE_TODO:
-            const newToDo = [...state.toDos]
-            newToDo[state.editIndex] = action.payload
-            return {
-                ...state,
-                toDoInput: '',
-                toDos: newToDo,
-                editIndex: null
+            {
+                const newToDo = [...state.toDos]
+                newToDo[state.editIndex] = action.payload
+                return {
+                    ...state,
+                    toDoInput: '',
+                    toDos: newToDo,
+                    editIndex: null
+                }
             }
         default:
             throw new Error('Invalid action')

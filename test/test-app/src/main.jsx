@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './Store/App'
-import { StoreProvider } from './Store'
+import App from './Video/App'
+// import { StoreProvider } from './Store'
 
 //fake comments
 
@@ -21,8 +21,8 @@ import { StoreProvider } from './Store'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <StoreProvider>
-      <App />
-    </StoreProvider>
+    {/* <StoreProvider> */}
+    <App />
+    {/* </StoreProvider> */}
   </StrictMode>,
 )

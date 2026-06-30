@@ -1,5 +1,4 @@
 import { useStore, actions } from "./";
-import { setToDo } from "./actions";
 import { useRef } from "react";
 
 function App() {
