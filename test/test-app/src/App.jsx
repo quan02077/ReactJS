@@ -8,6 +8,7 @@ import UseMemoExample from "./useMemo.jsx"
 import UseReducerExample from "./useReducer.jsx"
 import ToDoList from "./toDoList.jsx"
 import ToDoList_useReducer from "./ToDo/index.jsx"
+import Index from "./ThemeContext/index.jsx"
 import { useState } from "react"
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
   let layoutElement
 
   if (show) {
-    layoutElement = <ToDoList_useReducer />
+    layoutElement = <Index />
   }
   else {
     layoutElement = null
