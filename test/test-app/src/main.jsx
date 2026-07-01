@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import { createRoot } from 'react-dom/client'
 import App from './App'
 // import { StoreProvider } from './Store'
@@ -20,9 +20,7 @@ import App from './App'
 // emitComment(3)
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    {/* <StoreProvider> */}
+  <BrowserRouter>
     <App />
-    {/* </StoreProvider> */}
-  </StrictMode>,
+  </BrowserRouter>
 )
